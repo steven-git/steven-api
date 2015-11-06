@@ -9,7 +9,8 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/api/smartreads', function(req, res){
-	request.get('https://www.linkedin.com/company/accordant-media---what-we-are-reading?trk=biz-brand-tree-co-name', function (err, response, body) {
+	request('https://www.linkedin.com/company/accordant-media---what-we-are-reading?trk=biz-brand-tree-co-name', function (err, response, body) {
+		console.log(body);
 		$ = cheerio.load(body);
 		var header = $('ul#my-feed-post').html();
 		var newArray = [];
@@ -25,4 +26,21 @@ router.get('/api/smartreads', function(req, res){
 	});
 });
 
+router.get('/api/google', function(req, res){
+	request('http://google.com', function (err, response, body) {
+		console.log(body)
+		$ = cheerio.load(body);
+		//var header = $('ul#my-feed-post').html();
+		res.json(body);
+	});
+});
+
+router.get('/api/git', function(req, res){
+	request('https://github.com/request/request#requestoptions-callback', function (err, response, body) {
+		console.log(body)
+		$ = cheerio.load(body);
+		//var header = $('ul#my-feed-post').html();
+		res.json(body);
+	});
+});
 module.exports = router;
