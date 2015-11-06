@@ -9,7 +9,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/api/smartreads', function(req, res){
-	request('https://www.linkedin.com/company/accordant-media---what-we-are-reading', function (err, response, body) {
+	var options = {
+		uri: 'https://www.linkedin.com/company/accordant-media---what-we-are-reading',
+		timeout: 2000,
+		followAllRedirects: true
+	};
+	request(options, function (err, response, body) {
 		console.log(body);
 		$ = cheerio.load(body);
 		var header = $('ul#my-feed-post').html();
