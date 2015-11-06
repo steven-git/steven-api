@@ -19,7 +19,7 @@ router.get('/api/smartreads', function(req, res){
 				text  : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(2).children().eq(1).children().eq(2).html()
 			});
 		}
-
+		console.log(newArray);
 		res.json(newArray);
 	});
 });
