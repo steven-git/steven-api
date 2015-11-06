@@ -11,6 +11,7 @@ router.get('/', function(req, res, next) {
 router.get('/api/smartreads', function(req, res){
 	request.get('https://www.linkedin.com/company/accordant-media---what-we-are-reading?trk=biz-brand-tree-co-name', function (err, response, body) {
 		$ = cheerio.load(body);
+		var header = $('ul#my-feed-post').html();
 		var newArray = [];
 		for(var i = 0; i < 4; i++){
 			newArray.push({
@@ -19,7 +20,7 @@ router.get('/api/smartreads', function(req, res){
 				text  : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(2).children().eq(1).children().eq(2).html()
 			});
 		}
-		console.log(newArray);
+		console.log(header);
 		res.json(newArray);
 	});
 });
