@@ -15,20 +15,25 @@ router.get('/api/smartreads', function(req, res){
 		followAllRedirects: true
 	};
 	request(options, function (err, response, body) {
-		console.log('URL' + response.request.uri.href);
-		console.log(body);
-		$ = cheerio.load(body);
-		var header = $('ul#my-feed-post').html();
-		var newArray = [];
-		for(var i = 0; i < 4; i++){
-			newArray.push({
-				head  : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(1).html(),
-				title : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(2).children().eq(1).children().eq(0).html(),
-				text  : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(2).children().eq(1).children().eq(2).html()
-			});
-		}
-		//console.log(header);
-		res.json(body);
+
+		request(response.request.uri.href, function(err, response, body){
+			console.log('URL' + response.request.uri.href);
+			console.log(body);
+			$ = cheerio.load(body);
+			var header = $('ul#my-feed-post').html();
+			var newArray = [];
+			for(var i = 0; i < 4; i++){
+				newArray.push({
+					head  : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(1).html(),
+					title : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(2).children().eq(1).children().eq(0).html(),
+					text  : $('ul#my-feed-post').children().eq(i).children().children().eq(1).children().eq(2).children().eq(1).children().eq(2).html()
+				});
+			}
+			//console.log(header);
+			res.json(body);
+
+
+		});
 	});
 });
 
