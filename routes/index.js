@@ -9,7 +9,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/api/smartreads', function(req, res){
-	request('https://www.linkedin.com/company/accordant-media---what-we-are-reading?trk=biz-brand-tree-co-name', function (err, response, body) {
+	request('https://www.linkedin.com/company/accordant-media---what-we-are-reading', function (err, response, body) {
 		console.log(body);
 		$ = cheerio.load(body);
 		var header = $('ul#my-feed-post').html();
