@@ -15,7 +15,7 @@ router.get('/api/smartreads', function(req, res){
 		followAllRedirects: true
 	};
 	request(options, function (err, response, body) {
-		console.log('Redirects' + response.request._redirect.redirects);
+		console.log('URL' + response.request.uri.href);
 		console.log(body);
 		$ = cheerio.load(body);
 		var header = $('ul#my-feed-post').html();
