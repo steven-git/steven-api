@@ -8,6 +8,10 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
+router.get('/demo', function(req, res, next) {
+  res.render('demo');
+});
+ 
 router.get('/api/smartreads', function(req, res){
 	var options = {
 		uri: 'https://www.linkedin.com/company/accordant-media---what-we-are-reading',
