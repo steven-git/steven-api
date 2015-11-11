@@ -22,7 +22,7 @@ router.get('/linkedin', function(req, res, next) {
 	};
 
 	request(options, function(error, message, linkedinFeed){
-		console.log(linkedinFeed);
+		//console.log(linkedinFeed);
 		res.json(linkedinFeed);
 	}); // Closes request()
 }); // Closes router.get
@@ -31,7 +31,7 @@ router.get('/linkedin', function(req, res, next) {
 
 router.get('/api/google', function(req, res){
 	request('http://google.com', function (err, response, body) {
-		console.log(body)
+		//console.log(body)
 		$ = cheerio.load(body);
 		//var header = $('ul#my-feed-post').html();
 		res.json(body);
@@ -40,7 +40,7 @@ router.get('/api/google', function(req, res){
 
 router.get('/api/git', function(req, res){
 	request('https://github.com/request/request#requestoptions-callback', function (err, response, body) {
-		console.log(body)
+		//console.log(body)
 		$ = cheerio.load(body);
 		//var header = $('ul#my-feed-post').html();
 		res.json(body);
