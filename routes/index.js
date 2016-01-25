@@ -17,7 +17,7 @@ router.get('/linkedin', function(req, res, next) {
 			'User-Agent': 'MyApp(steven@basecamp.com)'
 		},
 		auth:{
-			'bearer': 'AQUL4iTcKGlEd9pRLnX3W0O4PoBfhkrIFwwr0aDw0RAoq75PXqQBa4rmNd0E7UeR13VBIvunekW7Qh72hPoZk9hC8l_InFv3EClfTlWwdpkujeV238ICuoS-km9Sxf3ggMn1-gh4Nifl295A79RaKTfciL7MK5cGr8BqSJ2Iw-dk2SlnY2M'
+			'bearer': 'AQWfbEVcwlbfx0xw3F26iHXO75yLa0pn-IjJTgTRFZFrfeb_tLI92HYdsXemeG-brgxsfbBzJ8OT5W7ntBFoHIo0JxVC3ivcuYEj6XNVo92tBHSrlMTiCAu2dGpS4sZCvEJQUgpuG5qTnfqXMduWaQzGpqbv8kExlLiU0JxY8dbk5egL6nQ'
 		}
 	};
 
